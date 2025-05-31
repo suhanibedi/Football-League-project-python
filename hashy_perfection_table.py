@@ -5,6 +5,7 @@ __since__ = '22/08/2024'
 
 from data_structures.referential_array import ArrayR
 from typing import Generic, Union, TypeVar
+from constants import PlayerStats
 
 K = TypeVar('K')
 V = TypeVar('V')
@@ -22,6 +23,7 @@ class HashyPerfectionTable(Generic[K, V]):
 
     Unless stated otherwise, all methods have O(1) complexity.
     """
+
     def __init__(self) -> None:
         """
         Initialise the Hash Table.
@@ -35,10 +37,11 @@ class HashyPerfectionTable(Generic[K, V]):
         Hash a key for insert/retrieve/update into the hashtable.
 
         Complexity:
-        Best Case Complexity:
-        Worst Case Complexity:
+        Best Case Complexity: O(1)
+        Worst Case Complexity: O(1)
         """
-        raise NotImplementedError
+        value = (3**len(key) * (ord(key[0])) + 3*len(key)) % 13
+        return value
 
     def __len__(self) -> int:
         """
@@ -101,6 +104,37 @@ class HashyPerfectionTable(Generic[K, V]):
         KeyError: When the key doesn't exist.
         """
         position: int = self.hash(key)
+        if position > 12 or position in range(9,11) or position == 7 or position == 5:
+            raise KeyError("Not a key contained in Player Stats")
+        if position == 6:
+            if key is not PlayerStats(PlayerStats.STAR_SKILL).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position == 8:
+            if key is not PlayerStats(PlayerStats.ASSISTS).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position in range(0,5):
+            if position == 0:
+                if key is not PlayerStats(PlayerStats.TACKLES).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 1:
+                if key is not PlayerStats(PlayerStats.WEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 2:
+                if key is not PlayerStats(PlayerStats.WEAK_FOOT_ABILITY).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 3:
+                if key is not PlayerStats(PlayerStats.GAMES_PLAYED).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 4:
+                if key is not PlayerStats(PlayerStats.GOALS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+        if position in range(11,13):
+            if position == 11:
+                if key is not PlayerStats(PlayerStats.INTERCEPTIONS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 12:
+                if key is not PlayerStats(PlayerStats.HEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
         if self.array[position] is None:
             raise KeyError(f"{key} not found")
         return self.array[position][1]
@@ -117,7 +151,38 @@ class HashyPerfectionTable(Generic[K, V]):
         KeyError: When the key doesn't exist.
         """
         position: int = self.hash(key)
-
+        if position > 12 or position in range(9,11) or position == 7 or position == 5:
+            raise KeyError("Not a key contained in Player Stats")
+        if position == 6:
+            if key is not PlayerStats(PlayerStats.STAR_SKILL).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position == 8:
+            if key is not PlayerStats(PlayerStats.ASSISTS).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position in range(0,5):
+            if position == 0:
+                if key is not PlayerStats(PlayerStats.TACKLES).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 1:
+                if key is not PlayerStats(PlayerStats.WEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 2:
+                if key is not PlayerStats(PlayerStats.WEAK_FOOT_ABILITY).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 3:
+                if key is not PlayerStats(PlayerStats.GAMES_PLAYED).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 4:
+                if key is not PlayerStats(PlayerStats.GOALS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+        if position in range(11,13):
+            if position == 11:
+                if key is not PlayerStats(PlayerStats.INTERCEPTIONS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 12:
+                if key is not PlayerStats(PlayerStats.HEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
+                
         if self.array[position] is None:
             self.count += 1
 
@@ -135,6 +200,37 @@ class HashyPerfectionTable(Generic[K, V]):
         KeyError: When the key doesn't exist.
         """
         position: int = self.hash(key)
+        if position > 12 or position in range(9,11) or position == 7 or position == 5:
+            raise KeyError("Not a key contained in Player Stats")
+        if position == 6:
+            if key is not PlayerStats(PlayerStats.STAR_SKILL).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position == 8:
+            if key is not PlayerStats(PlayerStats.ASSISTS).value:
+                raise KeyError("Not a key contained in Player Stats")
+        if position in range(0,5):
+            if position == 0:
+                if key is not PlayerStats(PlayerStats.TACKLES).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 1:
+                if key is not PlayerStats(PlayerStats.WEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 2:
+                if key is not PlayerStats(PlayerStats.WEAK_FOOT_ABILITY).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 3:
+                if key is not PlayerStats(PlayerStats.GAMES_PLAYED).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 4:
+                if key is not PlayerStats(PlayerStats.GOALS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+        if position in range(11,13):
+            if position == 11:
+                if key is not PlayerStats(PlayerStats.INTERCEPTIONS).value:
+                    raise KeyError("Not a key contained in Player Stats")
+            if position == 12:
+                if key is not PlayerStats(PlayerStats.HEIGHT).value:
+                    raise KeyError("Not a key contained in Player Stats")
         self.array[position] = None
         self.count -= 1
 
