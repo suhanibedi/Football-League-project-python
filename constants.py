@@ -68,3 +68,6 @@ class ResultStats(Enum):
     GOAL_ASSISTS = "Goal Assists"
     TACKLES = "Tackles"
     INTERCEPTIONS = "Interceptions"
+    GOAL_ASSISTS = "Goal Assists"
+    TACKLES = "Tackles"
+    INTERCEPTIONS = "Interceptions"
