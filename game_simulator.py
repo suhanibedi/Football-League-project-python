@@ -107,3 +107,6 @@ class GameSimulator:
 
         # Fallback in case rounding errors cause a miss
         return RandomGen.random_choice(players)
+
+        # Fallback in case rounding errors cause a miss
+        return RandomGen.random_choice(players)
